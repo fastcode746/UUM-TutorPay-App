@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "1020112595012",
+    "project_id": "tutor-app-43bd0",
+    "storage_bucket": "tutor-app-43bd0.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1020112595012:android:d4c8439dd9a4e22db63411",
+        "android_client_info": {
+          "package_name": "com.example.fee_app"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBLtaTW6IV3A2-Dvp45DKVh-AKNrLSC3eY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
