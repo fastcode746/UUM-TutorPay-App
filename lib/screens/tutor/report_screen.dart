@@ -90,7 +90,7 @@ class _TutorReportsScreenState extends State<TutorReportsScreen> {
                   mainAxisAlignment: pw.MainAxisAlignment.spaceBetween,
                   children: [
                     pw.Text('Fee Description: ${feeData['description']}', style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
-                    pw.Text('Amount: \$${feeData['feeAmount']}', style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
+                    pw.Text('Amount: \RM ${feeData['feeAmount']}', style: pw.TextStyle(fontWeight: pw.FontWeight.bold)),
                   ]
                 ),
                 pw.SizedBox(height: 10),
@@ -148,7 +148,7 @@ class _TutorReportsScreenState extends State<TutorReportsScreen> {
                 ),
                 pw.SizedBox(height: 20),
                 pw.Text('Total Students: ${paidStudents.length}'),
-                pw.Text('Total Revenue: \$${paidStudents.length * feeData['feeAmount']}'),
+                pw.Text('Total Revenue: \RM ${paidStudents.length * feeData['feeAmount']}'),
                 pw.SizedBox(height: 30),
                 pw.Footer(
                   title: pw.Text('Generated on ${formatter.format(DateTime.now())}')
@@ -234,7 +234,7 @@ class _TutorReportsScreenState extends State<TutorReportsScreen> {
                     ),
                   ),
                     title: Text(fee['description'] ?? 'No description'),
-                    subtitle: Text  ('Amount: \$${fee['feeAmount']} • ${DateFormat('MMM d, yyyy').format(createdAt)}'),
+                    subtitle: Text  ('Amount: \RM ${fee['feeAmount']} • ${DateFormat('MMM d, yyyy').format(createdAt)}'),
                     trailing: Text('${paidStudents.length} payments'),
                     children: [
                       Padding(
@@ -245,8 +245,8 @@ class _TutorReportsScreenState extends State<TutorReportsScreen> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: [
-                                Text('Total Revenue: \$${totalRevenue}', 
-                                  style: const TextStyle(fontWeight: FontWeight.bold)),
+                                Text('Total Revenue: \RM ${totalRevenue}', 
+                                  style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 12)),
                                 ElevatedButton.icon(
                                   style: ElevatedButton.styleFrom(
                                     backgroundColor: AppColors().appYellowColor,

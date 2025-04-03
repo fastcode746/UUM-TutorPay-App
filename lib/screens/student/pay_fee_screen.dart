@@ -58,8 +58,8 @@ getStudentName();
             fontWeight: FontWeight.bold,
           ),
             tabs: [
-              Tab(text: 'Available Tutors', ),
-              Tab(text: 'My Paid Tutors'),
+              Tab(text: 'Unpaid Fee', ),
+              Tab(text: 'My Paid Fee'),
             ],
           ),
         ),
@@ -105,7 +105,7 @@ getStudentName();
                         ),),
                         subtitle: Text(tutor['description'] ?? 'No description'),
                         trailing: Text(
-                          '\$${tutor['feeAmount'].toStringAsFixed(2)}',
+                          '\RM ${tutor['feeAmount'].toStringAsFixed(2)}',
                           style: TextStyle(
                             fontWeight: FontWeight.bold,
                             fontSize: 16,
@@ -199,7 +199,7 @@ getStudentName();
               fontWeight: FontWeight.bold
             ),),
             SizedBox(height: 8),
-            Text('Fee: \$${tutor['feeAmount'].toStringAsFixed(2)}'),
+            Text('Fee: \RM ${tutor['feeAmount'].toStringAsFixed(2)}'),
             if (tutor['description'] != null && tutor['description'].isNotEmpty) ...[
               SizedBox(height: 8),
               Text('Description: ${tutor['description']}'),

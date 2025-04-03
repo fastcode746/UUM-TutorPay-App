@@ -390,14 +390,17 @@ class _StudentPaymentHistoryScreenState
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
                               Text(
-                                payment['feeDescription'],
+                                payment['feeDescription']
+                                ,
+                                maxLines: 2,
+                                overflow: TextOverflow.clip,
                                 style: const TextStyle(
-                                  fontSize: 18,
+                                  fontSize: 12,
                                   fontWeight: FontWeight.bold,
                                 ),
                               ),
                               Text(
-                                '\$${payment['feeAmount']}',
+                                '\RM ${payment['feeAmount']}',
                                 style: const TextStyle(
                                   fontSize: 18,
                                   fontWeight: FontWeight.bold,
