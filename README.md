@@ -28,7 +28,7 @@
 - 📱 Intuitive mobile interface
 
 ## 📱 Preview
-[![Watch the video](https://drive.google.com/file/d/1O5IL0gURR6ebKfFeQi_17GVpkzzInNYl/view?usp=sharing)](https://drive.google.com/file/d/1pkXtLqZJnfDaf5Hmgwr9CZKCDECLLn9X/view?usp=sharing)
+[![See Preview Video]](https://drive.google.com/file/d/1pkXtLqZJnfDaf5Hmgwr9CZKCDECLLn9X/view?usp=sharing)
 
 
 ## 🛠️ Tech Stack
