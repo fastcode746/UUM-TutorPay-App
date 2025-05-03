@@ -27,16 +27,9 @@
 - 🧾 Download payment receipts as PDF
 - 📱 Intuitive mobile interface
 
-## 📱 Screenshots
+## 📱 Preview
+[![Watch the video](https://drive.google.com/file/d/1pkXtLqZJnfDaf5Hmgwr9CZKCDECLLn9X/view?usp=sharing)](https://drive.google.com/file/d/1pkXtLqZJnfDaf5Hmgwr9CZKCDECLLn9X/view?usp=sharing)
 
-<div align="center">
-  <div style="display: flex; flex-direction: row;">
-    <img src="https://via.placeholder.com/180x380?text=Tutor+Dashboard" width="180px" style="margin-right: 10px;" />
-    <img src="https://via.placeholder.com/180x380?text=Fee+Creation" width="180px" style="margin-right: 10px;" />
-    <img src="https://via.placeholder.com/180x380?text=Student+Payments" width="180px" style="margin-right: 10px;" />
-    <img src="https://via.placeholder.com/180x380?text=Payment+Receipt" width="180px" />
-  </div>
-</div>
 
 ## 🛠️ Tech Stack
 
