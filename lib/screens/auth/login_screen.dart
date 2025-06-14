@@ -250,7 +250,9 @@ class _LoginScreenState extends State<LoginScreen> {
                         mainAxisAlignment: MainAxisAlignment.end,
                         children: [
                           TextButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              _showResetPasswordDialog();
+                            },
                             child: Text(
                               'Forgot password ?',
                               style: TextStyle(
@@ -420,5 +422,72 @@ true                  );
             }
           });
     }
+  }
+
+  Future<void> _showResetPasswordDialog() async {
+    final TextEditingController emailResetController = TextEditingController();
+    
+    return showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        title: Text('Reset Password'),
+        content: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text('Enter your email address to receive a password reset link.'),
+            SizedBox(height: 20),
+            TextFormField(
+              controller: emailResetController,
+              decoration: InputDecoration(
+                labelText: 'Email',
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              keyboardType: TextInputType.emailAddress,
+            ),
+          ],
+        ),
+        actions: [
+          TextButton(
+            onPressed: () => Navigator.pop(context),
+            child: Text('Cancel'),
+          ),
+          ElevatedButton(
+            onPressed: () async {
+              if (emailResetController.text.isEmpty) {
+                showSnackbar(context, Colors.red, "Please enter your email address");
+                return;
+              }
+              
+              try {
+                await FirebaseAuth.instance.sendPasswordResetEmail(
+                  email: emailResetController.text.trim(),
+                );
+                Navigator.pop(context);
+                showSnackbar(
+                  context,
+                  Colors.green,
+                  "Password reset link has been sent to your email",
+                );
+              } on FirebaseAuthException catch (e) {
+                String message = "An error occurred";
+                if (e.code == 'user-not-found') {
+                  message = "No user found with this email address";
+                } else if (e.code == 'invalid-email') {
+                  message = "Please enter a valid email address";
+                }
+                showSnackbar(context, Colors.red, message);
+              }
+            },
+            child: Text('Send Reset Link'),
+            style: ElevatedButton.styleFrom(
+              backgroundColor: AppColors().appYellowColor,
+              foregroundColor: Colors.white,
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }

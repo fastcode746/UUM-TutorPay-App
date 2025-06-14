@@ -29,12 +29,14 @@ class _SignupScreenState extends State<SignupScreen> {
   final TextEditingController nameController = TextEditingController();
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
+  final TextEditingController idController = TextEditingController();
 
   @override
   void dispose() {
     nameController.dispose();
     emailController.dispose();
     passwordController.dispose();
+    idController.dispose();
     super.dispose();
   }
 
@@ -227,6 +229,64 @@ class _SignupScreenState extends State<SignupScreen> {
                         },
                       ),
                       SizedBox(height: 10),
+                      // Staff ID / Matric No Field
+                      Text(
+                        'Staff ID / Matric No',
+                        style: TextStyle(
+                          color: AppColors().appNavyColor,
+                          fontWeight: FontWeight.bold,
+                        ),
+                      ),
+                      SizedBox(height: 10),
+                      TextFormField(
+                        controller: idController,
+                        decoration: InputDecoration(
+                          contentPadding: EdgeInsets.symmetric(
+                            vertical: 15.0,
+                            horizontal: 20.0,
+                          ),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: AppColors().appNavyColor,
+                              width: 1.0,
+                            ),
+                          ),
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: AppColors().appNavyColor,
+                              width: 2.0,
+                            ),
+                          ),
+                          errorBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                            borderSide: BorderSide(
+                              color: Colors.red,
+                              width: 2.0,
+                            ),
+                          ),
+                        ),
+                        keyboardType: TextInputType.number,
+                        validator: (value) {
+                          if (value == null || value.isEmpty) {
+                            return 'Please enter your ID number';
+                          }
+                          // Check if the input contains only numbers
+                          if (!RegExp(r'^[0-9]+$').hasMatch(value)) {
+                            return 'Please enter numbers only';
+                          }
+                          // Check if the length is at least 5 digits
+                          if (value.length < 5) {
+                            return 'ID number must be at least 5 digits';
+                          }
+                          return null;
+                        },
+                      ),
+                      SizedBox(height: 10),
                       // Password Field
                       Text(
                         'Password',
@@ -390,6 +450,7 @@ class _SignupScreenState extends State<SignupScreen> {
             emailController.text,
             passwordController.text,
             selectedUserType.toString(),
+            idController.text,
           )
           .then((value) async {
             if (value == true) {

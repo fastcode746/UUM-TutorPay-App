@@ -12,21 +12,23 @@ class DatabaseService {
       FirebaseFirestore.instance.collection("students");
 
   // saving the userdata
-  Future savingTutorData(String fullName, String email, String userType) async {
+  Future savingTutorData(String fullName, String email, String userType, String userId) async {
     return await tutorCollection.doc(uid).set({
       "fullName": fullName,
       "email": email,
       "uid": uid,
       'userType': userType,
+      'userId': userId,
     });
   }
 
-    Future savingStudentData(String fullName, String email, String userType) async {
+    Future savingStudentData(String fullName, String email, String userType, String userId) async {
     return await studentCollection.doc(uid).set({
       "fullName": fullName,
       "email": email,
       "uid": uid,
       'userType': userType,
+      'userId': userId,
     });
   }
 

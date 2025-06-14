@@ -31,6 +31,7 @@ class AuthService {
     String email,
     String password,
     String userType,
+    String userId, 
   ) async {
     try {
       User user =
@@ -44,12 +45,12 @@ class AuthService {
         if (userType == "Tutor") {
           await DatabaseService(
             uid: user.uid,
-          ).savingTutorData(fullName, email, userType);
+          ).savingTutorData(fullName, email, userType, userId);
           return true;
         } else if (userType == "Student") {
           await DatabaseService(
             uid: user.uid,
-          ).savingStudentData(fullName, email, userType);
+          ).savingStudentData(fullName, email, userType, userId);
           return true;
         }
       }
