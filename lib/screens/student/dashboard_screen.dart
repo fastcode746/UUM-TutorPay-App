@@ -35,11 +35,9 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
           SingleChildScrollView(
             physics: BouncingScrollPhysics(),
             padding: EdgeInsets.symmetric(horizontal: 10).copyWith(top: 40),
-
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-               
                 // Main Logo
                 Image.asset(AppImages.mainLogo),
                 SizedBox(height: 20),
@@ -57,66 +55,60 @@ class _StudentDashboardScreenState extends State<StudentDashboardScreen> {
                     ),
                   ],
                 ),
-
                 SizedBox(height: 20),
-
-                Positioned(
-                  bottom: 0,
-                  child: Container(
-                    padding: EdgeInsets.symmetric(horizontal: 20),
-                    height: MediaQuery.of(context).size.height * 0.7,
-                    width: double.infinity,
-                    margin: EdgeInsets.symmetric(),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(20),
-                        topRight: Radius.circular(20),
-                      ),
+                Container(
+                  padding: EdgeInsets.symmetric(horizontal: 20),
+                  height: MediaQuery.of(context).size.height * 0.7,
+                  width: double.infinity,
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.only(
+                      topLeft: Radius.circular(20),
+                      topRight: Radius.circular(20),
                     ),
-                    child: GridView(
-                      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-                        crossAxisCount: 2,
-                        crossAxisSpacing: 20,
-                        mainAxisSpacing: 20,
-                      ),
-                      children: [
-                        CustomCard(
-                          onpress: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> StudentFeeScreen(),),);
-                          },
-                          icon: Icons.payment,
-                          buttonTitle: "Make Payment",
-                        ),
-                        CustomCard(
-                          onpress: () {
-                            Navigator.push(context, MaterialPageRoute(builder: (context)=> StudentPaymentHistoryScreen(),),);
-                          },
-                          icon: Icons.history,
-                          buttonTitle: "Payment History",
-                        ),
-                        CustomCard(
-                          onpress: () async {
-                            await authService.signOut();
-                            Navigator.pushReplacement(
-                              context,
-                              MaterialPageRoute(
-                                builder: (context) => OnBoardingScreen(),
-                              ),
-                            );
-                          },
-                          icon: Icons.logout,
-                          buttonTitle: "Logout",
-                        ),
-                        CustomCard(
-                          onpress: () {
-                            _showChangePasswordDialog();
-                          },
-                          icon: Icons.lock,
-                          buttonTitle: "Change Password",
-                        ),
-                      ],
+                  ),
+                  child: GridView(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 20,
+                      mainAxisSpacing: 20,
                     ),
+                    children: [
+                      CustomCard(
+                        onpress: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> StudentFeeScreen(),),);
+                        },
+                        icon: Icons.payment,
+                        buttonTitle: "Make Payment",
+                      ),
+                      CustomCard(
+                        onpress: () {
+                          Navigator.push(context, MaterialPageRoute(builder: (context)=> StudentPaymentHistoryScreen(),),);
+                        },
+                        icon: Icons.history,
+                        buttonTitle: "Payment History",
+                      ),
+                      CustomCard(
+                        onpress: () async {
+                          await authService.signOut();
+                          Navigator.pushReplacement(
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => OnBoardingScreen(),
+                            ),
+                          );
+                        },
+                        icon: Icons.logout,
+                        buttonTitle: "Logout",
+                      ),
+                      CustomCard(
+                        onpress: () {
+                          _showChangePasswordDialog();
+                        },
+                        icon: Icons.lock,
+                        buttonTitle: "Change Password",
+                      ),
+                    ],
                   ),
                 ),
               ],
